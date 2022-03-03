@@ -1,4 +1,4 @@
-
+// generate pin section
 function getPin() {
     const pin = Math.round(Math.random() * 10000);
     const pinString = pin + '';
@@ -14,6 +14,7 @@ function generatePin() {
     document.getElementById('display-pin').value = displayPin;
 }
 
+// all number button section
 document.getElementById('button-key').addEventListener('click', function (event) {
     const clickedNumber = event.target.innerText;
     const displayNumber = document.getElementById('display-number');
@@ -27,6 +28,21 @@ document.getElementById('button-key').addEventListener('click', function (event)
         displayNumber.value = newDisplayNumber;
     }
 })
+
+// verify pin
+function verifyPin() {
+    const generatePin = document.getElementById('display-pin').value;
+    const clickedNumber = document.getElementById('display-number').value;
+    const successMessage = document.getElementById('notify-success');
+    const failMessage = document.getElementById('notify-fail');
+    if (generatePin == clickedNumber) {
+        successMessage.style.display = 'block';
+        failMessage.style.display = 'none';
+    } else {
+        failMessage.style.display = 'block';
+        successMessage.style.display = 'none';
+    }
+}
 
 
 

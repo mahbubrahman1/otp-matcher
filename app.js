@@ -1,3 +1,4 @@
+
 function getPin() {
     const pin = Math.round(Math.random() * 10000);
     const pinString = pin + '';
@@ -16,7 +17,15 @@ function generatePin() {
 document.getElementById('button-key').addEventListener('click', function (event) {
     const clickedNumber = event.target.innerText;
     const displayNumber = document.getElementById('display-number');
-    displayNumber.value = clickedNumber;
+    if (isNaN(clickedNumber)) {
+        if (clickedNumber == 'C') {
+            displayNumber.value = '';
+        }
+    } else {
+        const previousDisplayNumber = displayNumber.value;
+        const newDisplayNumber = previousDisplayNumber + clickedNumber;
+        displayNumber.value = newDisplayNumber;
+    }
 })
 
 
